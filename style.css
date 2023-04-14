@@ -24,10 +24,6 @@ body {
     width: 100%;
 }
 
-.column > .hover {
-    background: black;
-}
-
 button {
     margin: 20px;
 }
