@@ -12,14 +12,14 @@ body {
     display: flex;
     flex-wrap: wrap;
 }
-div {
+.column > div {
     background-color: white;
     width: 150px;
     height: 150px;
 }
 
 
-.hover {
+.column > .hover {
     background: black;
 }
 button {

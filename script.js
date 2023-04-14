@@ -1,24 +1,30 @@
-function newGrid() {
-    askForNumber();
+function updateGrid() {
     removeGrid();
-    createGrid(numberOfSquares);
-    gridElement = document.querySelectorAll("#grid > div");
+    createGrid(askForNumber()); 
+    square = document.querySelectorAll('.column > div');
     addChangeColor();
 }
 
 function createGrid(squaresPerSide) {
-    for (let i = 1; i <= squaresPerSide**2; i++) {
-        const div = document.createElement('div');
-        grid.appendChild(div);
+    for (let i = 1; i <= squaresPerSide; i++) {
+        const parentDiv = document.createElement('div');
+        grid.appendChild(parentDiv);
+        parentDiv.classList.add('column');
+        for (let j = 1; j <= squaresPerSide; j++) {
+            const div = document.createElement('div');
+            parentDiv.appendChild(div);
+        }
     }
 }
 
 function removeGrid() {
-   gridElement.forEach(element => element.remove()); 
+   let columns = document.querySelectorAll("#grid > div");
+   square.forEach((element) => element.remove()); 
+   columns.forEach((element) => element.remove());
 }
 
 function addChangeColor() {
-    gridElement.forEach(element => {
+    square.forEach(element => {
         element.addEventListener("mouseover", (event) => {
             element.classList.add("hover");
         }), 
@@ -29,15 +35,16 @@ function addChangeColor() {
 }
 
 function askForNumber() {
-    numberOfSquares = prompt("Enter the amounth of squares per side");
-    if (numberOfSquares > 100) alert("The number you have entered is too large!");
+    let number = prompt("Enter the amounth of squares per side");
+    if (number > 100) alert("The number you have entered is too large!");
+    else return number;
 }
 
-let numberOfSquares = 4;
+const numberOfSquares = 4;
 const grid = document.querySelector('#grid');
 createGrid(numberOfSquares);
-let gridElement = document.querySelectorAll("#grid > div");
+let square = document.querySelectorAll('.column > div');
 addChangeColor();
 
 const button = document.querySelector('button');
-button.addEventListener('click', newGrid);
+button.addEventListener('click', updateGrid);
