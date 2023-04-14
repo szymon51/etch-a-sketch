@@ -9,10 +9,10 @@ function changeColor() {
     const gridElement = document.querySelectorAll("#grid > div");
     gridElement.forEach(element => {
         element.addEventListener("mouseover", (event) => {
-            element.style.backgroundColor = "black";
+            element.classList.add("hover");
         }), 
         element.addEventListener("mouseout", (event) => {
-            element.style.backgroundColor = "white";
+            element.classList.remove("hover");
         })
     });
 }
