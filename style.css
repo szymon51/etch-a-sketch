@@ -1,0 +1,21 @@
+body {
+    margin: 0px;
+}
+#grid {
+    background-color: black;
+    width: 400px;
+    height: 400px;
+    color: white;
+    padding: 50px;
+    display: flex;
+    flex-wrap: wrap;
+}
+div {
+    background-color: white;
+    width: 100px;
+    height: 100px;
+    flex: 0 0 100px;
+}
+div:hover {
+    background-color: black;
+}
