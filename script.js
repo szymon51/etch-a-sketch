@@ -2,7 +2,7 @@ function updateGrid() {
     removeGrid();
     createGrid(askForNumber()); 
     square = document.querySelectorAll('.column > div');
-    addChangeColor();
+    addColorChange();
 }
 
 function createGrid(squaresPerSide) {
@@ -17,18 +17,26 @@ function createGrid(squaresPerSide) {
     }
 }
 
+function randomRgb() {
+    return `rgb(${randomNumber()},${randomNumber()},${randomNumber()})`;
+}
+
+function randomNumber() {
+   return Math.floor(Math.random() * 255);
+}
+
 function removeGrid() {
    let columns = document.querySelectorAll("#grid > div");
    square.forEach((element) => element.remove()); 
    columns.forEach((element) => element.remove());
 }
 
-function addChangeColor() {
+function addColorChange() {
     square.forEach(element => {
-        element.addEventListener("mouseover", (event) => {
-            element.classList.add("hover");
+        element.addEventListener("mouseover", () => {
+            element.style.background = randomRgb();
         }), 
-        element.addEventListener("mouseout", (event) => {
+        element.addEventListener("mouseout", () => {
             element.classList.remove("hover");
         })
     });
@@ -40,11 +48,12 @@ function askForNumber() {
     else return number;
 }
 
+console.log(randomRgb());
 const numberOfSquares = 4;
 const grid = document.querySelector('#grid');
 createGrid(numberOfSquares);
 let square = document.querySelectorAll('.column > div');
-addChangeColor();
+addColorChange();
 
 const button = document.querySelector('button');
 button.addEventListener('click', updateGrid);

@@ -13,7 +13,7 @@ body {
     align-items: center;
 }
 .column > div {
-    background-color: white;
+    background: rgb(255,255,255);
     flex: 1 1 auto;
 }
 
