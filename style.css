@@ -1,22 +1,27 @@
 body {
     margin: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: bisque;
 }
 #grid {
-    background-color: black;
-    width: 400px;
-    height: 400px;
-    color: white;
-    padding: 50px;
+    width: 600px;
+    height: 600px;
     display: flex;
     flex-wrap: wrap;
 }
 div {
     background-color: white;
-    width: 100px;
-    height: 100px;
-    flex: 0 0 100px;
+    width: 150px;
+    height: 150px;
 }
+
 
 .hover {
     background: black;
+}
+button {
+    margin: 20px;
 }
